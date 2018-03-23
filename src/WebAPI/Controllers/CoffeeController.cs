@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+
+    [Authorize(Roles ="SuperStar")]
     [Produces("application/json")]
     [Route("api/Coffee")]
     public class CoffeeController : Controller
@@ -25,11 +28,6 @@ namespace WebAPI.Controllers
         {
             return _coffee.GetAllCoffees();
         }
-
-        
-       
-        
-       
         
         
     }
